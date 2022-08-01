@@ -1,0 +1,20 @@
+{
+  "name": "xl",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:navalm/xl.git",
+  "author": "Naval Monga <https://navalm.com/",
+  "license": "MIT",
+  "dependencies": {"vercel": "^27.2.0"},
+  "scripts": {
+    "develop": "yarn vercel build && yarn start",
+    "start": "yarn vercel dev",
+    "preview": "yarn vercel",
+    "mkd-build": "docker build -t xl/main .",
+    "mkd-clean": "docker stop xl-main && docker rmi `docker images xl/main -q` -f && docker container prune",
+    "mkd-init": "minikube start && eval $(minikube -p minikube docker-env)",
+    "mkd-ip": "minikube ip",
+    "mkd-run": "docker run -d -p 8080:8080 --name xl-main xl/main",
+    "link": "yarn vercel login && yarn vercel link"
+  }
+}
