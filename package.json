@@ -8,7 +8,7 @@
   "dependencies": {"vercel": "^27.2.0"},
   "scripts": {
     "develop": "yarn vercel build && yarn start",
-    "start": "yarn vercel dev",
+    "start": "yarn vercel dev --listen 127.0.0.1:4321 --confirm",
     "preview": "yarn vercel",
     "mkd-build": "docker build -t xl/main .",
     "mkd-clean": "docker stop xl-main && docker rmi `docker images xl/main -q` -f && docker container prune",
